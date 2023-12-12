@@ -56,7 +56,7 @@ Install node version **20.10.0** LTS from [here](https://nodejs.org/en/download/
 	      "id": 2,
 	      "username": "user",
 	      "password": "userpassword",
-	      "role": "admin"
+	      "role": "user"
 	    }
 
 Open Terminal (Linux) and clone the repository
