@@ -89,7 +89,7 @@ To lint fix
 ## API Reference
 
 
-[Refer to Postman Collection](https://linktodocumentation)
+[Refer to Postman Collection](https://github.com/mrajkishor/Movie-Lobby-OTT-API/blob/main/collection/Movie_Lobby_API_for_OTT.postman_collection.json)
 
 #### Authentication
 
