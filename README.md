@@ -7,7 +7,7 @@ genre, rating, and streaming link.
 
 ## Tech Stack
 
-**Server:** Node (v20.10.0), ExpressJS, Mongoose
+**Server side:** Node (v20.10.0), ExpressJS, Mongoose
 
 **Databse:** MongoDB
 
@@ -29,15 +29,15 @@ genre, rating, and streaming link.
 
 **NodeJS**
 
-Install node version **20.10.0** LTS from [here](https://nodejs.org/en.)
+Install node version **20.10.0** LTS from [here](https://nodejs.org/en/download/)
 
 **MongoDB**
 
--   Install MongoDB Server:  [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community)
--   Download MongoDB Compass: [https://www.mongodb.com/try/download/compass](https://www.mongodb.com/try/download/compass)
+-   Install MongoDB Server from [here](https://www.mongodb.com/try/download/community)
+-   Download MongoDB Compass from [here](https://www.mongodb.com/try/download/compass)
 -  After installing MongoDB Compass, launch the application.
 
- -   Connect MongoDB Compass to your MongoDB server by providing the URI mongodb://localhost:27017  
+ -   Connect MongoDB Compass to your MongoDB server by providing the URI `mongodb://localhost:27017`  
 - Create database movie-lobby.
 - Create collections movies and users. 
 - Add a user with "admin" role to collection users. 
@@ -45,7 +45,7 @@ Install node version **20.10.0** LTS from [here](https://nodejs.org/en.)
 	   {
 	     "id": 1,
 	     "username": "admin",
-	     "password": "password",
+	     "password": "adminpassword",
 	     "role": "admin"
 	   }
 
@@ -53,10 +53,10 @@ Install node version **20.10.0** LTS from [here](https://nodejs.org/en.)
 
 
 	    {
-	      "id": 1,
+	      "id": 2,
 	      "username": "user",
-	      "password": "password",
-	      "role": "user"
+	      "password": "userpassword",
+	      "role": "admin"
 	    }
 
 Open Terminal (Linux) and clone the repository
@@ -77,10 +77,10 @@ To run unit test with coverage report
     npm run coverage    
 To lint
 
-    npm lint
+    npm run lint
 To lint fix
 
-    npm lint:fix
+    npm run lint:fix
 
 
  
@@ -89,7 +89,7 @@ To lint fix
 ## API Reference
 
 
-[Refer to Postman Collection](https://github.com/mrajkishor/Movie-Lobby-OTT-API/blob/main/collection/Movie_Lobby_API_for_OTT.postman_collection.json)
+[Refer to Postman Collection](https://linktodocumentation)
 
 #### Authentication
 
@@ -99,12 +99,12 @@ To lint fix
 Request (as a user)
 | Body | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `{ "username": "user", "password": "userpassword"}   ` | `json` | List all the movies in the lobby & Search for a movie by title or genre |
+| `{ "username": "user", "password": "userpassword"}   ` | `json` | Login as a user |
 
 Request (as an admin)
 | Body | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| ` { "username": "admin", "password": "adminpassword"} ` | `json` | Get the admin privilege to Add a new movie to the lobby, Update an existing movie's information (title, genre, rating, or streaming link) and Delete a movie from the lobby  |
+| ` { "username": "admin", "password": "adminpassword"} ` | `json` | Login as an admin  |
 
 Response
 |  Type     | Response body               |
@@ -119,7 +119,7 @@ Response
 Response
 |  Type     | Response body               |
 |  :------- | :------------------------- |
-|  `string` | [{"_id":"65787e39be650819f3258211","title":"Movie1","genre":"Action","rating":3.4,"streamingLink":"https://imdb.com/33/","__v":0},{"_id":"65787e39be650819f3258212","title":"Movie2","genre":"Drama","rating":5.6,"streamingLink":"https://imdb.com/dummy","__v":0},...] |
+|  `json` | [{"_id":"65787e39be650819f3258211","title":"Movie1","genre":"Action","rating":3.4,"streamingLink":"https://imdb.com/33/","__v":0},{"_id":"65787e39be650819f3258212","title":"Movie2","genre":"Drama","rating":5.6,"streamingLink":"https://imdb.com/dummy","__v":0},...] |
 
 #### Search movies
 
@@ -129,7 +129,7 @@ Response
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `q`      | `string` | Search for a movie by title or genre |
+| `q`      | `string` | Provide title or genre |
 
 #### Post movies
 
@@ -145,7 +145,7 @@ Request Header
 Request Body
 | Body | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `{"title": "Animal", "genre": "Action", "rating": "7.3", "streamingLink": "https://www.dazn.com en-IN/home/ArticleId:1nqjt5ylvzmop1kjlnlbabe4xj"}` | `json` | /movies`: Add a new movie to the lobby (requires "admin" role) |
+| `{"title": "Animal", "genre": "Action", "rating": "7.3", "streamingLink": "https://www.dazn.com en-IN/home/ArticleId:1nqjt5ylvzmop1kjlnlbabe4xj"}` | `json` | Add a new movie to the lobby (requires "admin" role) |
 
 
 Response Success
@@ -251,7 +251,6 @@ Response Error (Without admin privilege)
 |  Type     | Response body               |
 |  :------- | :------------------------- |
 |  `json` | { "error": "Forbidden - Insufficient permissions"} |
-
 
 ## Author
 
