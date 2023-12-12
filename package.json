@@ -10,7 +10,7 @@
     "start": "npx ts-node index.ts",
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --fix"
   },
   "jest": {
@@ -42,6 +42,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",
     "eslint-config-standard-with-typescript": "^42.0.0",
     "eslint-plugin-import": "^2.29.0",
